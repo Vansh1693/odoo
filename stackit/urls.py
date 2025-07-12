@@ -1,6 +1,3 @@
-"""
-URL configuration for StackIt project.
-"""
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -10,10 +7,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    
+    path('votes/', include(('apps.votes.urls', 'votes'), namespace='votes')),  # ✅ only once
+
     # API URLs
     path('api/v1/', include('apps.core.api.urls')),
-    
+
     # App URLs
     path('', include('apps.core.urls')),
     path('users/', include('apps.users.urls')),

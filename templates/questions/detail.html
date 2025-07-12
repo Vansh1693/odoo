@@ -3,30 +3,54 @@
 
 {% block content %}
 <div class="container mt-4">
-  <!-- Question Title -->
-  <div class="mb-4">
-    <h2 class="fw-bold">{{ object.title }}</h2>
-    <p class="text-muted small">
-      <i class="bi bi-person-circle me-1"></i> Asked by
-      <strong>{{ object.created_by.get_full_name|default:object.created_by.username }}</strong>
-      on {{ object.created_at|date:"F j, Y, g:i a" }}
-    </p>
-  </div>
+  <!-- Question Title & Voting -->
+  <div class="mb-4 d-flex align-items-start">
+    <!-- Voting -->
+    <div class="me-3 text-center">
+      {% if user.is_authenticated %}
+        <button class="btn btn-outline-success btn-sm vote-btn"
+                data-id="{{ object.id }}" data-type="question" data-value="1">
+          <i class="bi bi-caret-up-fill"></i>
+        </button>
+      {% else %}
+        <span class="text-muted small">Login to vote</span>
+      {% endif %}
 
-  <!-- Question Content -->
-  <div class="mb-4 p-3 bg-light rounded border">
-    {{ object.content|safe }}
-  </div>
+      <div class="fw-bold my-1" id="vote-score-question-{{ object.id }}">
+        {{ object.vote_score }}
+      </div>
 
-  <!-- Tags -->
-  {% if object.tags.all %}
-  <div class="mb-4">
-    <strong><i class="bi bi-tags me-1"></i>Tags:</strong>
-    {% for tag in object.tags.all %}
-      <span class="badge bg-primary me-1">{{ tag.name }}</span>
-    {% endfor %}
+      {% if user.is_authenticated %}
+        <button class="btn btn-outline-danger btn-sm vote-btn"
+                data-id="{{ object.id }}" data-type="question" data-value="-1">
+          <i class="bi bi-caret-down-fill"></i>
+        </button>
+      {% endif %}
+    </div>
+
+    <!-- Question Info -->
+    <div class="flex-grow-1">
+      <h2 class="fw-bold">{{ object.title }}</h2>
+      <p class="text-muted small">
+        <i class="bi bi-person-circle me-1"></i> Asked by
+        <strong>{{ object.created_by.get_full_name|default:object.created_by.username }}</strong>
+        on {{ object.created_at|date:"F j, Y, g:i a" }}
+      </p>
+
+      <div class="mb-4 p-3 bg-light rounded border">
+        {{ object.content|safe }}
+      </div>
+
+      {% if object.tags.all %}
+      <div class="mb-4">
+        <strong><i class="bi bi-tags me-1"></i>Tags:</strong>
+        {% for tag in object.tags.all %}
+          <span class="badge bg-primary me-1">{{ tag.name }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
   </div>
-  {% endif %}
 
   <!-- Answer Form -->
   <hr class="my-5">
@@ -56,12 +80,36 @@
 
   {% for answer in object.answers.all %}
     <div class="card my-4 shadow-sm">
-      <div class="card-body">
-        {{ answer.content|safe }}
-        <div class="text-muted small mt-3">
-          <i class="bi bi-person"></i> Answered by
-          <strong>{{ answer.created_by.get_full_name|default:answer.created_by.username }}</strong>
-          on {{ answer.created_at|date:"F j, Y, g:i a" }}
+      <div class="card-body d-flex">
+        <!-- Voting for Answers -->
+        <div class="me-3 text-center">
+          {% if user.is_authenticated %}
+            <button class="btn btn-outline-success btn-sm vote-btn"
+                    data-id="{{ answer.id }}" data-type="answer" data-value="1">
+              <i class="bi bi-caret-up-fill"></i>
+            </button>
+          {% endif %}
+
+          <div class="fw-bold my-1" id="vote-score-answer-{{ answer.id }}">
+            {{ answer.vote_score }}
+          </div>
+
+          {% if user.is_authenticated %}
+            <button class="btn btn-outline-danger btn-sm vote-btn"
+                    data-id="{{ answer.id }}" data-type="answer" data-value="-1">
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+          {% endif %}
+        </div>
+
+        <!-- Answer Content -->
+        <div class="flex-grow-1">
+          {{ answer.content|safe }}
+          <div class="text-muted small mt-3">
+            <i class="bi bi-person"></i> Answered by
+            <strong>{{ answer.created_by.get_full_name|default:answer.created_by.username }}</strong>
+            on {{ answer.created_at|date:"F j, Y, g:i a" }}
+          </div>
         </div>
       </div>
     </div>
@@ -69,4 +117,46 @@
     <p class="text-muted mt-3">No answers yet. Be the first to answer!</p>
   {% endfor %}
 </div>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.vote-btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const objectId = button.dataset.id;
+        const contentType = button.dataset.type;
+        const value = button.dataset.value;
+
+        const formData = new FormData();
+        formData.append('content_type', contentType);
+        formData.append('object_id', objectId);
+        formData.append('value', value);
+
+        try {
+          const response = await fetch("{% url 'votes:vote' %}", {
+            method: 'POST',
+            headers: {
+              'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: formData
+          });
+
+          const data = await response.json();
+          if (data.success) {
+            const scoreId = `vote-score-${contentType}-${objectId}`;
+            const scoreElem = document.getElementById(scoreId);
+            if (scoreElem) scoreElem.textContent = data.new_score;
+          } else if (data.error) {
+            alert(data.error);
+          }
+        } catch (error) {
+          console.error('Vote error:', error);
+        }
+      });
+    });
+  });
+</script>
 {% endblock %}

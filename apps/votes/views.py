@@ -1,81 +1,54 @@
-from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.views import View
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.contenttypes.models import ContentType
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from .models import Vote
-from apps.questions.models import Question
-from apps.answers.models import Answer
+from django.db import models
 
 
-class VoteView(LoginRequiredMixin, View):
-    """
-    Handle voting on questions and answers via AJAX.
-    """
+@method_decorator(csrf_exempt, name='dispatch')
+class VoteView(View):
     def post(self, request):
-        content_type_name = request.POST.get('content_type')
+        content_type = request.POST.get('content_type')
         object_id = request.POST.get('object_id')
-        vote_value = int(request.POST.get('value'))  # 1 for upvote, -1 for downvote
-        
-        if content_type_name not in ['question', 'answer']:
-            return JsonResponse({'error': 'Invalid content type'}, status=400)
-        
-        if vote_value not in [1, -1]:
+        value = request.POST.get('value')
+
+        try:
+            value = int(value)
+        except (ValueError, TypeError):
             return JsonResponse({'error': 'Invalid vote value'}, status=400)
-        
-        # Check if user has enough reputation to vote
-        if not request.user.can_vote():
-            return JsonResponse({
-                'error': 'You need at least 15 reputation to vote'
-            }, status=403)
-        
-        # Get the content object
-        if content_type_name == 'question':
-            content_object = get_object_or_404(Question, pk=object_id)
-        else:
-            content_object = get_object_or_404(Answer, pk=object_id)
-        
-        # Prevent voting on own content
-        if content_object.created_by == request.user:
+
+        try:
+            model = ContentType.objects.get(model=content_type).model_class()
+            obj = model.objects.get(pk=object_id)
+        except Exception as e:
+            return JsonResponse({'error': f'Invalid content: {e}'}, status=400)
+
+        if not request.user.is_authenticated:
+            return JsonResponse({'error': 'You must be logged in to vote'}, status=403)
+
+        if obj.created_by == request.user:
             return JsonResponse({'error': 'You cannot vote on your own content'}, status=400)
-        
-        content_type = ContentType.objects.get_for_model(content_object)
-        
-        # Check if user already voted
-        existing_vote = Vote.objects.filter(
+
+        vote, created = Vote.objects.get_or_create(
             user=request.user,
-            content_type=content_type,
-            object_id=object_id
-        ).first()
-        
-        if existing_vote:
-            if existing_vote.value == vote_value:
-                # Remove vote if clicking same vote
-                existing_vote.delete()
-                return JsonResponse({
-                    'success': True,
-                    'action': 'removed',
-                    'new_score': content_object.vote_score
-                })
+            content_type=ContentType.objects.get_for_model(obj),
+            object_id=obj.id,
+            defaults={'value': value}
+        )
+
+        if not created:
+            if vote.value == value:
+                vote.delete()
             else:
-                # Change vote
-                existing_vote.value = vote_value
-                existing_vote.save()
-                return JsonResponse({
-                    'success': True,
-                    'action': 'changed',
-                    'new_score': content_object.vote_score
-                })
-        else:
-            # Create new vote
-            Vote.objects.create(
-                user=request.user,
-                content_type=content_type,
-                object_id=object_id,
-                value=vote_value
-            )
-            return JsonResponse({
-                'success': True,
-                'action': 'created',
-                'new_score': content_object.vote_score
-            })
+                vote.value = value
+                vote.save()
+
+        # Calculate new vote score
+        vote_score = Vote.objects.filter(
+            content_type=ContentType.objects.get_for_model(obj),
+            object_id=obj.id
+        ).aggregate(score_sum=models.Sum('value'))['score_sum'] or 0
+
+        return JsonResponse({'success': True, 'new_score': vote_score})

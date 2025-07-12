@@ -20,29 +20,34 @@ class HomeView(ListView):
         queryset = Question.objects.select_related('created_by').prefetch_related(
             'tags', 'answers'
         ).annotate(
-            total_answers=Count('answers')
+            total_answers=Count('answers'),
         )
 
         status = self.request.GET.get('status')
         sort = self.request.GET.get('sort')
 
-        # ✅ Filter logic
+        # ✅ Filter: Unanswered or Answered
         if status == 'unanswered':
-            queryset = queryset.filter(total_answers=0)
+            queryset = queryset.filter(answer_count=0)
         elif status == 'answered':
-            queryset = queryset.filter(total_answers__gt=0)  # ✅ ADD THIS
+            queryset = queryset.filter(answer_count__gt=0)
 
-        # ✅ Sort logic
+        # ✅ Sort Logic
         if sort == 'votes':
             queryset = queryset.order_by('-vote_score')
         elif sort == 'views':
             queryset = queryset.order_by('-views')
-        elif sort == 'newest':
-            queryset = queryset.order_by('-created_at')
-        else:
+        elif sort == 'newest' or sort is None:
             queryset = queryset.order_by('-created_at')
 
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'Latest Questions'
+        context['status'] = self.request.GET.get('status', '')
+        context['sort'] = self.request.GET.get('sort', 'newest')
+        return context
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
