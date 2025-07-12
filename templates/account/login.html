@@ -5,12 +5,41 @@
 {% block title %}Login - StackIt{% endblock %}
 
 {% block content %}
-<div class="container">
-  <h2 class="mb-4">Login</h2>
-  <form method="post" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-sm p-4" style="width: 100%; max-width: 420px;">
+    <div class="text-center mb-4">
+      <!--<img src="{% static 'images/logo.png' %}" alt="StackIt Logo" style="height: 50px;">-->
+      <h3 class="mt-2">Welcome Back</h3>
+      <p class="text-muted mb-0">Login to your account</p>
+    </div>
+
+    <form method="post" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+          {{ form.non_field_errors }}
+        </div>
+      {% endif %}
+
+      {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <div class="text-danger small">{{ field.errors|striptags }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <p class="mb-1"><a href="{% url 'account_reset_password' %}">Forgot password?</a></p>
+      <p class="mb-0">Don’t have an account?
+        <a href="{% url 'account_signup' %}">Sign up</a>
+      </p>
+    </div>
+  </div>
 </div>
 {% endblock %}
