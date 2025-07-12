@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Leaderboard | StackIt{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Leaderboard</h2>
+
+{% if users %}
+    <div class="list-group">
+        {% for user in users %}
+            <a href="{% url 'users:profile' username=user.username %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ user.display_name }}</strong> <span class="text-muted">@{{ user.username }}</span>
+                </div>
+                <span class="badge bg-secondary">{{ user.reputation }}</span>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No users found.</p>
+{% endif %}
+{% endblock %}
