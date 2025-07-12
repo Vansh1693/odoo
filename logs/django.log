@@ -1,0 +1,426 @@
+INFO 2025-07-12 11:00:08,539 autoreload 22072 24192 Watching for file changes with StatReloader
+ERROR 2025-07-12 11:00:26,653 log 22072 7564 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:26,661 basehttp 22072 7564 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:26,751 log 22072 12520 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:26,756 basehttp 22072 12520 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:26,827 log 22072 7564 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:26,832 basehttp 22072 7564 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:27,039 log 22072 12520 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:27,044 basehttp 22072 12520 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:27,129 log 22072 7564 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:27,135 basehttp 22072 7564 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:27,222 log 22072 12520 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:27,227 basehttp 22072 12520 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:27,325 log 22072 7564 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:27,332 basehttp 22072 7564 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:27,424 log 22072 12520 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:27,431 basehttp 22072 12520 "GET / HTTP/1.1" 500 94883
+ERROR 2025-07-12 11:00:35,875 log 22072 27544 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 20, in get_queryset
+    ).annotate(
+      ^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1590, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1631, in _annotate
+    raise ValueError(
+ValueError: The annotation 'answer_count' conflicts with a field on the model.
+ERROR 2025-07-12 11:00:35,887 basehttp 22072 27544 "GET / HTTP/1.1" 500 94807
+INFO 2025-07-12 11:02:17,996 autoreload 22072 24192 C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py changed, reloading.
+INFO 2025-07-12 11:02:21,586 autoreload 30864 14088 Watching for file changes with StatReloader
+ERROR 2025-07-12 11:02:56,546 log 30864 25268 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: questions_question
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 174, in get
+    context = self.get_context_data()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 27, in get_context_data
+    context = super().get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 128, in get_context_data
+    paginator, page, queryset, is_paginated = self.paginate_queryset(
+                                              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 73, in paginate_queryset
+    page = paginator.page(page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 72, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 53, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 99, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 93, in count
+    return c()
+           ^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: questions_question
+ERROR 2025-07-12 11:03:02,033 basehttp 30864 25268 "GET / HTTP/1.1" 500 185950
+INFO 2025-07-12 11:04:44,239 autoreload 27896 31588 Watching for file changes with StatReloader
+ERROR 2025-07-12 11:04:49,566 log 27896 11664 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: answers_answer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 174, in get
+    context = self.get_context_data()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\views.py", line 27, in get_context_data
+    context = super().get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 128, in get_context_data
+    paginator, page, queryset, is_paginated = self.paginate_queryset(
+                                              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\list.py", line 73, in paginate_queryset
+    page = paginator.page(page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 72, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 53, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 99, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 93, in count
+    return c()
+           ^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: answers_answer
+ERROR 2025-07-12 11:04:49,575 basehttp 27896 11664 "GET / HTTP/1.1" 500 185902
+INFO 2025-07-12 11:08:53,593 autoreload 10872 8100 Watching for file changes with StatReloader
+INFO 2025-07-12 11:08:59,581 basehttp 10872 14824 "GET / HTTP/1.1" 200 8378
+INFO 2025-07-12 11:09:00,039 basehttp 10872 14824 "GET /static/css/custom.css HTTP/1.1" 200 2802
+INFO 2025-07-12 11:09:05,140 basehttp 10872 14824 "GET /questions/ask/ HTTP/1.1" 302 0
+INFO 2025-07-12 11:09:06,028 basehttp 10872 14824 "GET /accounts/login/?next=/questions/ask/ HTTP/1.1" 200 1575
