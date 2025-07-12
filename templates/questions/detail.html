@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ object.title }}</h2>
+    <p class="text-muted">Asked by {{ object.author }} on {{ object.created_at }}</p>
+    
+    <div class="content my-3">
+        {{ object.content|safe }}
+    </div>
+
+    {% if object.tags.all %}
+    <div class="tags mt-2">
+        <strong>Tags:</strong>
+        {% for tag in object.tags.all %}
+            <span class="badge bg-secondary">{{ tag.name }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
