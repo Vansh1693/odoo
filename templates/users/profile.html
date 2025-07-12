@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}{{ user.display_name }}'s Profile{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">{{ user.display_name }} <small class="text-muted">@{{ user.username }}</small></h1>
+
+<div class="mb-3">
+    <strong>Reputation:</strong> {{ user.reputation }}
+</div>
+
+<div class="mb-4">
+    <strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}
+</div>
+
+<h3>Questions</h3>
+{% if questions %}
+    <ul class="list-group mb-4">
+        {% for question in questions %}
+            <li class="list-group-item">
+                <a href="{{ question.get_absolute_url }}">{{ question.title }}</a>
+                <span class="badge bg-secondary float-end">{{ question.vote_score }} votes</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">No questions posted yet.</p>
+{% endif %}
+
+<h3>Answers</h3>
+{% if answers %}
+    <ul class="list-group">
+        {% for answer in answers %}
+            <li class="list-group-item">
+                <a href="{{ answer.question.get_absolute_url }}">{{ answer.question.title }}</a>
+                <span class="badge bg-secondary float-end">{{ answer.vote_score }} votes</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">No answers posted yet.</p>
+{% endif %}
+{% endblock %}
