@@ -424,3 +424,583 @@ INFO 2025-07-12 11:08:59,581 basehttp 10872 14824 "GET / HTTP/1.1" 200 8378
 INFO 2025-07-12 11:09:00,039 basehttp 10872 14824 "GET /static/css/custom.css HTTP/1.1" 200 2802
 INFO 2025-07-12 11:09:05,140 basehttp 10872 14824 "GET /questions/ask/ HTTP/1.1" 302 0
 INFO 2025-07-12 11:09:06,028 basehttp 10872 14824 "GET /accounts/login/?next=/questions/ask/ HTTP/1.1" 200 1575
+INFO 2025-07-12 11:19:28,233 autoreload 34752 33296 Watching for file changes with StatReloader
+INFO 2025-07-12 11:19:31,501 basehttp 34752 26836 "GET / HTTP/1.1" 200 8378
+INFO 2025-07-12 11:19:32,893 basehttp 34752 21332 "GET /static/css/custom.css HTTP/1.1" 200 2802
+INFO 2025-07-12 11:19:38,500 basehttp 34752 1672 "GET / HTTP/1.1" 200 8378
+INFO 2025-07-12 11:19:38,797 basehttp 34752 1672 "GET /static/css/custom.css HTTP/1.1" 304 0
+INFO 2025-07-12 11:19:39,880 basehttp 34752 1672 "GET / HTTP/1.1" 200 8378
+INFO 2025-07-12 11:19:43,648 basehttp 34752 1672 "GET /accounts/login/ HTTP/1.1" 200 1483
+INFO 2025-07-12 11:19:56,292 basehttp 34752 1672 "GET /questions/ask/ HTTP/1.1" 302 0
+INFO 2025-07-12 11:19:56,324 basehttp 34752 1672 "GET /accounts/login/?next=/questions/ask/ HTTP/1.1" 200 1575
+ERROR 2025-07-12 11:20:07,898 log 34752 1672 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: users_user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 156, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 83, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 110, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 434, in full_clean
+    self._clean_form()
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 455, in _clean_form
+    cleaned_data = self.clean()
+                   ^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\forms.py", line 178, in clean
+    user = get_adapter(self.request).authenticate(self.request, **credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 640, in authenticate
+    user = authenticate(request, **credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\debug.py", line 42, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\__init__.py", line 77, in authenticate
+    user = backend.authenticate(request, **credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\backends.py", line 46, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\base_user.py", line 54, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: users_user
+ERROR 2025-07-12 11:20:07,923 basehttp 34752 1672 "POST /accounts/login/ HTTP/1.1" 500 232317
+INFO 2025-07-12 11:28:59,244 autoreload 33824 29464 Watching for file changes with StatReloader
+ERROR 2025-07-12 11:29:04,515 log 33824 25236 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: notifications_notification
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 156, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 83, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 111, in post
+    response = self.form_valid(form)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 169, in form_valid
+    return form.login(self.request, redirect_url=success_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\forms.py", line 196, in login
+    ret = perform_login(
+          ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 168, in perform_login
+    return _perform_login(request, login)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 181, in _perform_login
+    return resume_login(request, login)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 209, in resume_login
+    response = adapter.post_login(request, login.user, **hook_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 443, in post_login
+    self.add_message(
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 332, in add_message
+    escaped_message = render_to_string(
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\context.py", line 254, in bind_template
+    updates.update(processor(self.request))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\context_processors.py", line 12, in notifications_count
+    ).count()
+      ^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: notifications_notification
+ERROR 2025-07-12 11:29:04,530 basehttp 33824 25236 "POST /accounts/login/ HTTP/1.1" 500 233904
+INFO 2025-07-12 11:29:05,799 basehttp 33824 25236 "GET /accounts/login/?next=/questions/ask/ HTTP/1.1" 200 1575
+INFO 2025-07-12 11:29:11,976 basehttp 33824 25236 "GET /accounts/login/ HTTP/1.1" 200 1483
+ERROR 2025-07-12 11:29:17,202 log 33824 25236 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: notifications_notification
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 156, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 83, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 111, in post
+    response = self.form_valid(form)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 169, in form_valid
+    return form.login(self.request, redirect_url=success_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\forms.py", line 196, in login
+    ret = perform_login(
+          ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 168, in perform_login
+    return _perform_login(request, login)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 181, in _perform_login
+    return resume_login(request, login)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 209, in resume_login
+    response = adapter.post_login(request, login.user, **hook_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 443, in post_login
+    self.add_message(
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 332, in add_message
+    escaped_message = render_to_string(
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\context.py", line 254, in bind_template
+    updates.update(processor(self.request))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\context_processors.py", line 12, in notifications_count
+    ).count()
+      ^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: notifications_notification
+ERROR 2025-07-12 11:29:17,205 basehttp 33824 25236 "POST /accounts/login/ HTTP/1.1" 500 233592
+INFO 2025-07-12 11:29:51,325 autoreload 18032 24896 Watching for file changes with StatReloader
+WARNING 2025-07-12 11:29:55,067 log 18032 8636 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-07-12 11:29:55,068 basehttp 18032 8636 "POST /accounts/login/ HTTP/1.1" 403 2518
+INFO 2025-07-12 11:31:14,954 autoreload 23900 8440 Watching for file changes with StatReloader
+INFO 2025-07-12 11:31:20,801 basehttp 23900 28516 "GET /accounts/login/ HTTP/1.1" 200 1483
+ERROR 2025-07-12 11:31:27,664 log 23900 28516 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: notifications_notification
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 156, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 83, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 111, in post
+    response = self.form_valid(form)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\views.py", line 169, in form_valid
+    return form.login(self.request, redirect_url=success_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\forms.py", line 196, in login
+    ret = perform_login(
+          ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 168, in perform_login
+    return _perform_login(request, login)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 181, in _perform_login
+    return resume_login(request, login)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\utils.py", line 209, in resume_login
+    response = adapter.post_login(request, login.user, **hook_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 443, in post_login
+    self.add_message(
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\allauth\account\adapter.py", line 332, in add_message
+    escaped_message = render_to_string(
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\context.py", line 254, in bind_template
+    updates.update(processor(self.request))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\core\context_processors.py", line 12, in notifications_count
+    ).count()
+      ^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: notifications_notification
+ERROR 2025-07-12 11:31:27,674 basehttp 23900 28516 "POST /accounts/login/ HTTP/1.1" 500 233592
+INFO 2025-07-12 11:32:04,826 autoreload 28848 26892 Watching for file changes with StatReloader
+WARNING 2025-07-12 11:32:08,306 log 28848 15748 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-07-12 11:32:08,308 basehttp 28848 15748 "POST /accounts/login/ HTTP/1.1" 403 2518
+INFO 2025-07-12 11:32:09,415 basehttp 28848 15748 "GET /accounts/login/ HTTP/1.1" 200 1483
+INFO 2025-07-12 11:32:09,630 basehttp 28848 15748 "GET /accounts/login/ HTTP/1.1" 200 1483
+INFO 2025-07-12 11:32:11,475 basehttp 28848 15748 "GET /accounts/login/ HTTP/1.1" 200 1483
+INFO 2025-07-12 11:32:14,829 basehttp 28848 15748 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-12 11:32:14,906 basehttp 28848 15748 "GET / HTTP/1.1" 200 9763
+INFO 2025-07-12 11:32:14,956 basehttp 28848 15748 "GET /static/css/custom.css HTTP/1.1" 304 0
+ERROR 2025-07-12 11:32:22,545 log 28848 15748 Internal Server Error: /questions/ask/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: questions/ask.html
+ERROR 2025-07-12 11:32:22,547 basehttp 28848 15748 "GET /questions/ask/ HTTP/1.1" 500 88556
+INFO 2025-07-12 11:33:32,776 autoreload 30820 23016 Watching for file changes with StatReloader
+INFO 2025-07-12 11:33:35,685 basehttp 30820 33420 "GET /questions/ask/ HTTP/1.1" 200 8529
+ERROR 2025-07-12 11:33:48,058 log 30820 33420 Internal Server Error: /questions/ask/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\generic\edit.py", line 152, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 433, in full_clean
+    self._clean_fields()
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\forms\forms.py", line 448, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\Downloads\stackit-mvp\apps\questions\forms.py", line 36, in clean_tags
+    tag_list = [tag.strip() for tag in tags.split(',') if tag.strip()]
+                                       ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'split'
+ERROR 2025-07-12 11:33:48,058 basehttp 30820 33420 "POST /questions/ask/ HTTP/1.1" 500 111569
+INFO 2025-07-12 11:35:22,738 autoreload 30820 23016 C:\Users\sayhe\Downloads\stackit-mvp\apps\questions\forms.py changed, reloading.
+INFO 2025-07-12 11:35:34,193 autoreload 7272 33416 Watching for file changes with StatReloader
+INFO 2025-07-12 11:35:36,103 basehttp 7272 4004 "POST /questions/ask/ HTTP/1.1" 302 0
+ERROR 2025-07-12 11:35:36,222 log 7272 4004 Internal Server Error: /questions/1/
+Traceback (most recent call last):
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayhe\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: questions/detail.html
+ERROR 2025-07-12 11:35:36,225 basehttp 7272 4004 "GET /questions/1/ HTTP/1.1" 500 89037
+INFO 2025-07-12 11:36:15,692 basehttp 7272 4004 "GET /questions/1/ HTTP/1.1" 200 6682
+INFO 2025-07-12 11:36:23,599 basehttp 7272 4004 "GET / HTTP/1.1" 200 11508
+INFO 2025-07-12 11:36:25,581 basehttp 7272 4004 "GET /questions/1/ HTTP/1.1" 200 6341
+INFO 2025-07-12 11:36:35,001 basehttp 7272 4004 "GET /questions/ask/ HTTP/1.1" 200 8529
+INFO 2025-07-12 11:36:41,375 basehttp 7272 4004 "POST /questions/ask/ HTTP/1.1" 302 0
+INFO 2025-07-12 11:36:41,398 basehttp 7272 4004 "GET /questions/2/ HTTP/1.1" 200 6673
+INFO 2025-07-12 11:36:44,136 basehttp 7272 4004 "GET / HTTP/1.1" 200 13950
+INFO 2025-07-12 11:36:46,299 basehttp 7272 4004 "GET /?status=unanswered&sort= HTTP/1.1" 200 13980
+INFO 2025-07-12 11:36:46,883 basehttp 7272 4004 "GET /?status=answered&sort= HTTP/1.1" 200 13974
+INFO 2025-07-12 11:36:47,632 basehttp 7272 4004 "GET /?status=all&sort= HTTP/1.1" 200 13959
+INFO 2025-07-12 11:36:49,403 basehttp 7272 4004 "GET /?status=all&sort=votes HTTP/1.1" 200 13974
+INFO 2025-07-12 11:36:49,778 basehttp 7272 4004 "GET /?status=all&sort=views HTTP/1.1" 200 13974
+INFO 2025-07-12 11:36:50,171 basehttp 7272 4004 "GET /?status=all&sort=newest HTTP/1.1" 200 13977

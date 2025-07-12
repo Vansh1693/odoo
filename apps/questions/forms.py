@@ -33,8 +33,10 @@ class QuestionForm(forms.ModelForm):
     def clean_tags(self):
         tags = self.cleaned_data.get('tags')
         if tags:
-            tag_list = [tag.strip() for tag in tags.split(',') if tag.strip()]
+            tag_list = [tag.name.strip() if hasattr(tag, 'name') else str(tag).strip() for tag in tags if
+                        str(tag).strip()]
             if len(tag_list) > 5:
                 raise forms.ValidationError("Maximum 5 tags allowed.")
-            return ','.join(tag_list)
+            return tags  # Return as is — let TaggableManager handle it
         return tags
+
