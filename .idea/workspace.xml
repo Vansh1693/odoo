@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ef329fb1-f576-4b9b-87a0-c5878cf1bfc8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/questions/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/questions/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/django.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/django.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stackit/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/stackit/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/core/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/questions/ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/questions/ask.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/questions/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/questions/detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "C:/Users/sayhe/Downloads/stackit-mvp",
     "node.js.detected.package.eslint": "true",

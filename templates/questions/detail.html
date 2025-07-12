@@ -1,21 +1,72 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container mt-4">
-    <h2>{{ object.title }}</h2>
-    <p class="text-muted">Asked by {{ object.author }} on {{ object.created_at }}</p>
-    
-    <div class="content my-3">
-        {{ object.content|safe }}
-    </div>
+  <!-- Question Title -->
+  <div class="mb-4">
+    <h2 class="fw-bold">{{ object.title }}</h2>
+    <p class="text-muted small">
+      <i class="bi bi-person-circle me-1"></i> Asked by
+      <strong>{{ object.created_by.get_full_name|default:object.created_by.username }}</strong>
+      on {{ object.created_at|date:"F j, Y, g:i a" }}
+    </p>
+  </div>
 
-    {% if object.tags.all %}
-    <div class="tags mt-2">
-        <strong>Tags:</strong>
-        {% for tag in object.tags.all %}
-            <span class="badge bg-secondary">{{ tag.name }}</span>
-        {% endfor %}
+  <!-- Question Content -->
+  <div class="mb-4 p-3 bg-light rounded border">
+    {{ object.content|safe }}
+  </div>
+
+  <!-- Tags -->
+  {% if object.tags.all %}
+  <div class="mb-4">
+    <strong><i class="bi bi-tags me-1"></i>Tags:</strong>
+    {% for tag in object.tags.all %}
+      <span class="badge bg-primary me-1">{{ tag.name }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Answer Form -->
+  <hr class="my-5">
+  <h4 class="mb-3"><i class="bi bi-chat-dots me-1"></i> Your Answer</h4>
+
+  {% if user.is_authenticated %}
+    <form method="post" action="{% url 'answers:create' object.pk %}" class="mb-5">
+      {% csrf_token %}
+      {{ answer_form|crispy }}
+      <button type="submit" class="btn btn-success mt-2">
+        <i class="bi bi-send me-1"></i> Post Answer
+      </button>
+    </form>
+  {% else %}
+    <p class="text-muted">You must
+      <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a>
+      to post an answer.
+    </p>
+  {% endif %}
+
+  <!-- Answer List -->
+  <hr>
+  <h4 class="mt-5">
+    <i class="bi bi-chat-left-text me-1"></i> {{ object.answers.count }}
+    Answer{{ object.answers.count|pluralize }}
+  </h4>
+
+  {% for answer in object.answers.all %}
+    <div class="card my-4 shadow-sm">
+      <div class="card-body">
+        {{ answer.content|safe }}
+        <div class="text-muted small mt-3">
+          <i class="bi bi-person"></i> Answered by
+          <strong>{{ answer.created_by.get_full_name|default:answer.created_by.username }}</strong>
+          on {{ answer.created_at|date:"F j, Y, g:i a" }}
+        </div>
+      </div>
     </div>
-    {% endif %}
+  {% empty %}
+    <p class="text-muted mt-3">No answers yet. Be the first to answer!</p>
+  {% endfor %}
 </div>
 {% endblock %}

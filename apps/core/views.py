@@ -9,7 +9,7 @@ from django.db.models import Count
 
 class HomeView(ListView):
     """
-    Home page showing recent questions.
+    Home page showing recent questions with optional sorting and filtering.
     """
     model = Question
     template_name = 'core/home.html'
@@ -17,15 +17,38 @@ class HomeView(ListView):
     paginate_by = 20
 
     def get_queryset(self):
-        return Question.objects.select_related('created_by').prefetch_related(
+        queryset = Question.objects.select_related('created_by').prefetch_related(
             'tags', 'answers'
         ).annotate(
-            total_answers=Count('answers')  # ✅ Changed name to avoid conflict
-        ).order_by('-created_at')
+            total_answers=Count('answers')
+        )
+
+        status = self.request.GET.get('status')
+        sort = self.request.GET.get('sort')
+
+        # ✅ Filter logic
+        if status == 'unanswered':
+            queryset = queryset.filter(total_answers=0)
+        elif status == 'answered':
+            queryset = queryset.filter(total_answers__gt=0)  # ✅ ADD THIS
+
+        # ✅ Sort logic
+        if sort == 'votes':
+            queryset = queryset.order_by('-vote_score')
+        elif sort == 'views':
+            queryset = queryset.order_by('-views')
+        elif sort == 'newest':
+            queryset = queryset.order_by('-created_at')
+        else:
+            queryset = queryset.order_by('-created_at')
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'Latest Questions'
+        context['status'] = self.request.GET.get('status', '')
+        context['sort'] = self.request.GET.get('sort', '')
         return context
 
 

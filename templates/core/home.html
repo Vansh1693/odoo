@@ -19,35 +19,23 @@
                     <div class="col-md-6">
                         <label class="form-label">Filter by:</label>
                         <div class="btn-group" role="group">
-                            <a href="?status=all&sort={{ request.GET.sort }}" 
-                               class="btn btn-outline-primary {% if request.GET.status == 'all' or not request.GET.status %}active{% endif %}">
-                                All
-                            </a>
-                            <a href="?status=unanswered&sort={{ request.GET.sort }}" 
-                               class="btn btn-outline-primary {% if request.GET.status == 'unanswered' %}active{% endif %}">
-                                Unanswered
-                            </a>
-                            <a href="?status=answered&sort={{ request.GET.sort }}" 
-                               class="btn btn-outline-primary {% if request.GET.status == 'answered' %}active{% endif %}">
-                                Answered
-                            </a>
+                            <a href="?status=all&sort={{ sort }}"
+                               class="btn btn-outline-primary {% if status == 'all' or not status %}active{% endif %}">All</a>
+                            <a href="?status=unanswered&sort={{ sort }}"
+                               class="btn btn-outline-primary {% if status == 'unanswered' %}active{% endif %}">Unanswered</a>
+                            <a href="?status=answered&sort={{ sort }}"
+                               class="btn btn-outline-primary {% if status == 'answered' %}active{% endif %}">Answered</a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Sort by:</label>
                         <div class="btn-group" role="group">
-                            <a href="?status={{ request.GET.status }}&sort=newest" 
-                               class="btn btn-outline-secondary {% if request.GET.sort == 'newest' or not request.GET.sort %}active{% endif %}">
-                                Newest
-                            </a>
-                            <a href="?status={{ request.GET.status }}&sort=votes" 
-                               class="btn btn-outline-secondary {% if request.GET.sort == 'votes' %}active{% endif %}">
-                                Votes
-                            </a>
-                            <a href="?status={{ request.GET.status }}&sort=views" 
-                               class="btn btn-outline-secondary {% if request.GET.sort == 'views' %}active{% endif %}">
-                                Views
-                            </a>
+                            <a href="?status={{ status }}&sort=newest"
+                               class="btn btn-outline-secondary {% if sort == 'newest' or not sort %}active{% endif %}">Newest</a>
+                            <a href="?status={{ status }}&sort=votes"
+                               class="btn btn-outline-secondary {% if sort == 'votes' %}active{% endif %}">Votes</a>
+                            <a href="?status={{ status }}&sort=views"
+                               class="btn btn-outline-secondary {% if sort == 'views' %}active{% endif %}">Views</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +44,7 @@
 
         <!-- Questions List -->
         {% for question in questions %}
-            <div class="card mb-3">
+            <div class="card mb-3 shadow-sm">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2 text-center">
@@ -66,7 +54,7 @@
                             </div>
                             <div class="mb-2">
                                 <span class="badge {% if question.has_accepted_answer %}bg-success{% elif question.answer_count > 0 %}bg-warning{% else %}bg-light text-dark{% endif %}">
-                                    {{ question.total_answers }}=
+                                    {{ question.total_answers }}
                                 </span>
                                 <small class="text-muted d-block">answers</small>
                             </div>
@@ -77,28 +65,25 @@
                         </div>
                         <div class="col-md-10">
                             <h5>
-                                <a href="{{ question.get_absolute_url }}" class="text-decoration-none">
+                                <a href="{{ question.get_absolute_url }}" class="text-decoration-none text-dark">
                                     {{ question.title }}
                                 </a>
                                 {% if question.has_accepted_answer %}
                                     <i class="bi bi-check-circle-fill text-success" title="Has accepted answer"></i>
                                 {% endif %}
                             </h5>
-                            
                             <div class="mb-2">
                                 {% for tag in question.tags.all %}
-                                    <a href="{% url 'questions:by_tag' tag=tag.name %}" 
+                                    <a href="{% url 'questions:by_tag' tag=tag.name %}"
                                        class="badge bg-light text-dark text-decoration-none me-1">
                                         {{ tag.name }}
                                     </a>
                                 {% endfor %}
                             </div>
-                            
                             <div class="d-flex justify-content-between align-items-center">
                                 <small class="text-muted">
                                     Asked {{ question.created_at|timesince }} ago by
-                                    <a href="{% url 'users:profile' username=question.created_by.username %}" 
-                                       class="text-decoration-none">
+                                    <a href="{% url 'users:profile' username=question.created_by.username %}" class="text-decoration-none">
                                         {{ question.created_by.display_name }}
                                     </a>
                                     <span class="badge bg-secondary">{{ question.created_by.reputation }}</span>
@@ -123,23 +108,23 @@
                 <ul class="pagination justify-content-center">
                     {% if page_obj.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" href="?page=1&status={{ request.GET.status }}&sort={{ request.GET.sort }}">First</a>
+                            <a class="page-link" href="?page=1&status={{ status }}&sort={{ sort }}">First</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}&status={{ request.GET.status }}&sort={{ request.GET.sort }}">Previous</a>
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}&status={{ status }}&sort={{ sort }}">Previous</a>
                         </li>
                     {% endif %}
-                    
+
                     <li class="page-item active">
                         <span class="page-link">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
                     </li>
-                    
+
                     {% if page_obj.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.next_page_number }}&status={{ request.GET.status }}&sort={{ request.GET.sort }}">Next</a>
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}&status={{ status }}&sort={{ sort }}">Next</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&status={{ request.GET.status }}&sort={{ request.GET.sort }}">Last</a>
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&status={{ status }}&sort={{ sort }}">Last</a>
                         </li>
                     {% endif %}
                 </ul>
